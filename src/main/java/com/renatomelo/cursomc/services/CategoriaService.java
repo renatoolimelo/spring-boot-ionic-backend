@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.renatomelo.cursomc.domain.Categoria;
 import com.renatomelo.cursomc.repositories.CategoriaRepository;
+import com.renatomelo.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoriaService {
@@ -18,7 +19,8 @@ public class CategoriaService {
 
 	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
-		return obj.orElseGet(null);
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
 	}
 
 }
