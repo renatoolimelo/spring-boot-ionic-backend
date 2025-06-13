@@ -2,6 +2,9 @@ package com.renatomelo.cursomc.domain;
 
 import com.renatomelo.cursomc.domain.enums.EstadoPagamento;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class PagamentoComCartao extends Pagamento {
 	private static final long serialVersionUID = 1L;
 
