@@ -6,22 +6,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.renatomelo.cursomc.domain.Categoria;
-import com.renatomelo.cursomc.services.CategoriaService;
+import com.renatomelo.cursomc.domain.Cliente;
+import com.renatomelo.cursomc.services.ClienteService;
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
+@RequestMapping(value = "/clientes")
+public class ClienteResource {
 
-	private CategoriaService service;
+	private ClienteService service;
 
-	public CategoriaResource(CategoriaService service) {
+	public ClienteResource(ClienteService service) {
 		this.service = service;
 	}
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = service.find(id);
+		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
 
